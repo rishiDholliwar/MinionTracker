@@ -68,14 +68,14 @@ public class ExecuteOption {
 
     private double getMinionHeightInput() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter minion's height: ");
+
 
         double minionHeight = 0;
         boolean isInvalidInput = true;
 
         do {
             try {
-                System.out.print("> ");
+                System.out.print("Enter minion's height: ");
                 minionHeight = scanner.nextDouble();
                 if (minionHeight > 0) {
                     isInvalidInput = false;
@@ -83,7 +83,7 @@ public class ExecuteOption {
                     System.out.println("Error: Please enter a minion height greater than 0");
                 }
             } catch (InputMismatchException exception) {
-                System.out.println(" Error: Please enter numbers only");
+                System.out.println("Error: Please enter numbers only");
                 scanner.next();
             }
         } while (isInvalidInput);
