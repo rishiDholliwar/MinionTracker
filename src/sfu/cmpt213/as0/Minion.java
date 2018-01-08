@@ -4,7 +4,6 @@ package sfu.cmpt213.as0;
  * Minion class is used to create minions and store their information
  */
 public class Minion {
-
     private String name;
     private double heightInM;
     private int numEvilDeeds;
