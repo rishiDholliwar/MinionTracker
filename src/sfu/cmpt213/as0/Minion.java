@@ -27,12 +27,12 @@ public class Minion {
         return numEvilDeeds;
     }
 
-    public void incrementEvilDeed(){
-        this.numEvilDeeds = this.numEvilDeeds+1;
+    public void incrementEvilDeed() {
+        this.numEvilDeeds = this.numEvilDeeds + 1;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return getClass().getName()
                 + "[Name: " + this.name + ", "
                 + "Evil Deeds: " + this.numEvilDeeds + ", "

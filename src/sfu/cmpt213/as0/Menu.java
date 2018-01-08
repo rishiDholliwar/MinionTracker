@@ -31,15 +31,15 @@ public class Menu {
 
     }
 
-    private void displayStarLine(String title){
-        for (int i =0;i<title.length() + EXTRA_STAR_CHARACTERS;i++){
+    private void displayStarLine(String title) {
+        for (int i = 0; i < title.length() + EXTRA_STAR_CHARACTERS; i++) {
             System.out.print("*");
         }
         System.out.println();
     }
 
     public int getSelection() {
-       return getNumberBetween(1,options.length);
+        return getNumberBetween(1, options.length);
     }
 
     public static int getNumberBetween(int min, int max) {
