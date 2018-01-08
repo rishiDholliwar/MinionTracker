@@ -9,7 +9,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //TODO maybe put in constants
         String[] menuOptions = {
                 "List minions",
                 "Add a new minion",
@@ -22,37 +21,37 @@ public class Main {
         Menu menu = new Menu("Main Menu", menuOptions);
         menu.welcomeDisplay();
 
-        boolean isExit = false;
         ArrayList<Minion> minions = new ArrayList<>();
 
         ExecuteOption executeOption = new ExecuteOption();
-        final int LIST_MINION = 1;
-        final int ADD_MINION = 2;
-        final int REMOVE_MINION = 3;
-        final int ATTRIBUTE_EVIL_DEED = 4;
-        final int DEBUG = 5;
-        final int EXIT = 6;
+        final int LIST_MINION_OPTION = 1;
+        final int ADD_MINION_OPTION = 2;
+        final int REMOVE_MINION_OPTION = 3;
+        final int ATTRIBUTE_EVIL_DEED_OPTION = 4;
+        final int DEBUG_OPTION = 5;
+        final int EXIT_OPTION = 6;
 
+        boolean isExit = false;
         while (!isExit) {
-            menu.display();
-            int userSelection = menu.getSelection();
-            switch (userSelection) {
-                case LIST_MINION:
+            menu.menuOptionsDisplay();
+            int userMenuSelection = menu.getSelection();
+            switch (userMenuSelection) {
+                case LIST_MINION_OPTION:
                     executeOption.listMinion(minions);
                     break;
-                case ADD_MINION:
+                case ADD_MINION_OPTION:
                     executeOption.addMinion(minions);
                     break;
-                case REMOVE_MINION:
+                case REMOVE_MINION_OPTION:
                     executeOption.removeMinion(minions);
                     break;
-                case ATTRIBUTE_EVIL_DEED:
+                case ATTRIBUTE_EVIL_DEED_OPTION:
                     executeOption.attributeEvilDeed(minions);
                     break;
-                case DEBUG:
+                case DEBUG_OPTION:
                     executeOption.dumpObjects(minions);
                     break;
-                case EXIT:
+                case EXIT_OPTION:
                     isExit = true;
                     break;
                 default:

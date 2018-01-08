@@ -9,6 +9,8 @@ import java.util.Scanner;
  * Executes the menu options
  */
 public class ExecuteOption {
+    private static final int START_MENU_AT_ONE = 1;
+    private static final int INITIAL_EVIL_DEED = 0;
 
     public void listMinion(ArrayList<Minion> minions) {
         System.out.println();
@@ -22,7 +24,7 @@ public class ExecuteOption {
 
         for (int i = 0; i < minions.size(); i++) {
             Minion currMinion = minions.get(i);
-            System.out.println(i + 1 + ". " + currMinion.getName() + ", "
+            System.out.println(i + START_MENU_AT_ONE + ". " + currMinion.getName() + ", "
                     + currMinion.getHeightInM() + "m, "
                     + currMinion.getNumEvilDeeds() + " evil deed(s)");
 
@@ -32,21 +34,21 @@ public class ExecuteOption {
 
     public void addMinion(ArrayList<Minion> minions) {
         String minionName = getMinionNameInput();
-        double minionHeight = getMinionHeightInput();
-        minions.add(new Minion(minionName, minionHeight, 0));
+        double minionHeight = getValidMinionHeightInput();
+        minions.add(new Minion(minionName, minionHeight, INITIAL_EVIL_DEED));
     }
 
     public void removeMinion(ArrayList<Minion> minions) {
         int userSelection = getValidMinion(minions);
         if (userSelection > 0) {
-            minions.remove(userSelection - 1);
+            minions.remove(userSelection - START_MENU_AT_ONE);
         }
     }
 
     public void attributeEvilDeed(ArrayList<Minion> minions) {
         int userSelection = getValidMinion(minions);
         if (userSelection > 0) {
-            Minion minion = minions.get(userSelection - 1);
+            Minion minion = minions.get(userSelection - START_MENU_AT_ONE);
             minion.incrementEvilDeed();
             System.out.println(minion.getName() + " has now done " + minion.getNumEvilDeeds() + " evil deed(s)!");
         }
@@ -55,7 +57,7 @@ public class ExecuteOption {
     public void dumpObjects(ArrayList<Minion> minions) {
         System.out.println("All minion objects:");
         for (int i = 0; i < minions.size(); i++) {
-            System.out.println(i+1 + ". " + minions.get(i).toString());
+            System.out.println(i+START_MENU_AT_ONE + ". " + minions.get(i).toString());
         }
     }
 
@@ -66,7 +68,7 @@ public class ExecuteOption {
         return minionName;
     }
 
-    private double getMinionHeightInput() {
+    private double getValidMinionHeightInput() {
         Scanner scanner = new Scanner(System.in);
 
 
@@ -108,7 +110,7 @@ public class ExecuteOption {
                     System.out.println("Error: Please enter a selection between 0 and " + minions.size());
                 }
             } catch (InputMismatchException exception) {
-                System.out.println(" Error: Please enter integers only");
+                System.out.println("Error: Please enter integers only");
                 scanner.next();
             }
         } while (isInvalidInput);

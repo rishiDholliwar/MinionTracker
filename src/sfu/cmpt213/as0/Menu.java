@@ -7,25 +7,35 @@ import java.util.Scanner;
  * Menu class creates a menu by storing its title and options
  */
 public class Menu {
+    private static final int EXTRA_STAR_CHARACTERS = 4;
+    private static final int START_MENU_AT_ONE = 1;
 
     private String title;
     private String[] options;
+
 
     public Menu(String title, String[] options) {
         this.title = title;
         this.options = options;
     }
 
-    public void display() {
+    public void menuOptionsDisplay() {
         System.out.println();
-        System.out.println("*************");
+        displayStarLine(this.title);
         System.out.println("* " + this.title + " *");
-        System.out.println("*************");
+        displayStarLine(this.title);
 
         for (int i = 0; i < options.length; i++) {
-            System.out.println(i + 1 + ". " + options[i]);
+            System.out.println(i + START_MENU_AT_ONE + ". " + options[i]);
         }
 
+    }
+
+    private void displayStarLine(String title){
+        for (int i =0;i<title.length() + EXTRA_STAR_CHARACTERS;i++){
+            System.out.print("*");
+        }
+        System.out.println();
     }
 
     public int getSelection() {
@@ -48,7 +58,7 @@ public class Menu {
                     System.out.println("Error: Please enter a selection between " + min + " and " + max);
                 }
             } catch (InputMismatchException exception) {
-                System.out.println(" Error: Please enter integers only");
+                System.out.println("Error: Please enter integers only");
                 scanner.next();
             }
         } while (isInvalidInput);
