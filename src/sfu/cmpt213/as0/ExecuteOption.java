@@ -57,7 +57,7 @@ public class ExecuteOption {
     public void dumpObjects(ArrayList<Minion> minions) {
         System.out.println("All minion objects:");
         for (int i = 0; i < minions.size(); i++) {
-            System.out.println(i+START_MENU_AT_ONE + ". " + minions.get(i).toString());
+            System.out.println(i + START_MENU_AT_ONE + ". " + minions.get(i).toString());
         }
     }
 
@@ -70,8 +70,6 @@ public class ExecuteOption {
 
     private double getValidMinionHeightInput() {
         Scanner scanner = new Scanner(System.in);
-
-
         double minionHeight = 0;
         boolean isInvalidInput = true;
 
